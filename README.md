@@ -6,19 +6,25 @@ This project is a web application that allows users to upload files and enter te
 
 ## Features
 
+- Text-to-Speech
+
+<!-- 
 - Upload files (e.g., text files, PDFs) or enter text
 - Select conversion options (e.g., voice, language, speed)
 - Generate audio files
 - Save favorite text-to-speech conversions
 - Share audio files with others
+-->
 
 ## Technical Stack
 
+<!-- 
 - Front-end: React or Angular
 - CSS framework: Materialize or Semantic UI
 - Server-side APIs: Google Cloud Text-to-Speech, Amazon Polly, or Microsoft Azure Cognitive Services
 - Client-side storage: Local storage or cookies
 - Modal: Used for displaying conversion options
+-->
 
 ## Future Development
 
@@ -34,13 +40,13 @@ This project is a web application that allows users to upload files and enter te
 
 ## Team Members
 
-- [Your Name]
+- Alvin
 - [Other Team Members]
 
 ## Links
 
-- [Deployed Application](https://customizable-text-to-speech.github.io)
-- [GitHub Repository](https://github.com/your-username/customizable-text-to-speech)
+- [Deployed Application](https://alvin-est.github.io/crispy-chainsaw)
+- [GitHub Repository](https://github.com/alvin-est/crispy-chainsaw)
 
 ## License
 
@@ -48,12 +54,21 @@ This project is a web application that allows users to upload files and enter te
 
 ---
 
+## User Story
+
+## Acceptance Criteria
+
+
+---
+
+# AI Recommendations
+
 ## Technical Acceptance Criteria
 
-- **Server-side APIs:** The app could use APIs from text-to-speech services like Google Cloud Text-to-Speech, Amazon Polly, or Microsoft Azure Cognitive Services to convert text to speech.
+- **Server-side APIs:** The app could use APIs from text-to-speech services like Google Cloud Text-to-Speech, Amazon Polly, Microsoft Azure Cognitive Services, or ElevenLabs API to convert text to speech.
 - **Client-side storage:** The app could store user preferences, uploaded files, and favorite text-to-speech conversions using local storage or cookies.
-- **Modal:** The app could use a modal to display text-to-speech conversion options, such as voice, language, and speed.
-- **CSS framework:** The app could use a CSS framework like Materialize or Semantic UI instead of Bootstrap.
+- **Modal:** The app could use a modal (pop-up) to display text-to-speech conversion options, such as voice, language, and speed.
+- **CSS framework:** The app could use a CSS framework like Materialize, Tailwind, or Semantic UI instead of Bootstrap.
 - **Interactive:** The app would accept and respond to user input, such as uploading files, entering text, and selecting conversion options.
 
 ## Concept
