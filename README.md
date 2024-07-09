@@ -61,7 +61,7 @@ This project is a web application that allows users to upload files and enter te
 
 ---
 
-# AI Recommendations
+# Recommendations
 
 ## Technical Acceptance Criteria
 
