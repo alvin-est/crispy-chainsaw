@@ -1,108 +1,124 @@
-# Customizable Text-to-Speech App
-
-## Overview
-
-This project is a web application that allows users to upload files and enter text for conversion into speech. The app uses APIs from text-to-speech services to generate audio files based on user input.
-
-## Features
-
-- Text-to-Speech
-
-<!-- 
-- Upload files (e.g., text files, PDFs) or enter text
-- Select conversion options (e.g., voice, language, speed)
-- Generate audio files
-- Save favorite text-to-speech conversions
-- Share audio files with others
--->
-
-## Technical Stack
-
-<!-- 
-- Front-end: React or Angular
-- CSS framework: Materialize or Semantic UI
-- Server-side APIs: Google Cloud Text-to-Speech, Amazon Polly, or Microsoft Azure Cognitive Services
-- Client-side storage: Local storage or cookies
-- Modal: Used for displaying conversion options
--->
-
-## Future Development
-
-- Voice cloning
-- Custom voices
-- Integration with other applications
-- Social media integration
-
-## Deployment
-
-- Deployed to GitHub Pages
-- Responsive and polished UI
-
-## Team Members
-
-- Alvin
-- [Other Team Members]
-
-## Links
-
-- [Deployed Application](https://alvin-est.github.io/crispy-chainsaw)
-- [GitHub Repository](https://github.com/alvin-est/crispy-chainsaw)
-
-## License
-
-[MIT License](https://opensource.org/licenses/MIT)
-
----
-
-## User Story
-
-## Acceptance Criteria
+# Codey the AI
+# Introduction
+ This interactive app would solve the real-world problem of allowing users to convert text to speech in a customizable and user-friendly way, making it easier for them to create audio content.
 
 
----
+## :ledger: Index
 
-# Recommendations
+- [About](#beginner-about)
+  - [File Structure](#file_folder-file-structure)
+  - [Build](#hammer-build)  
+  - [Deployment](#rocket-deployment)  
+- [Community](#cherry_blossom-community)
+  - [Contribution](#fire-contribution)
+- [Resources](#page_facing_up-resources)
+- [Gallery](#camera-gallery)
+- [Credit/Acknowledgment](#star2-creditacknowledgment)
+- [License](#lock-license)
 
-## Technical Acceptance Criteria
+##  :beginner: About
+- This website is a versatile text-to-speech application designed to convert user input into spoken words. Users can provide input through text, file uploads, or voice activity, and receive the output in their chosen voice.
+  
 
-- **Server-side APIs:** The app could use APIs from text-to-speech services like Google Cloud Text-to-Speech, Amazon Polly, Microsoft Azure Cognitive Services, or ElevenLabs API to convert text to speech.
-- **Client-side storage:** The app could store user preferences, uploaded files, and favorite text-to-speech conversions using local storage or cookies.
-- **Modal:** The app could use a modal (pop-up) to display text-to-speech conversion options, such as voice, language, and speed.
-- **CSS framework:** The app could use a CSS framework like Materialize, Tailwind, or Semantic UI instead of Bootstrap.
-- **Interactive:** The app would accept and respond to user input, such as uploading files, entering text, and selecting conversion options.
+Features include:
+- ENTER MORE FEATURES BELOW 
+- Input a message and have it spoken aloud
+- Select from available voices
+- Responsive design using CSS framworks such as (ENTER CSS FRAMWORK HERE)
+- Includes modal. 
+- Includes client-side storage to store persistent data so if the user returns to the website the data is saved for preference.
+- Has a user friendly and polished UI.
+- Offers light and dark mode themes to enhance the visual experience and reduce eye strain.
+- Select from available voices.
+- Voice Speed Control.
+- Pitch Control.
+- Volume Control.
+- Save and Load Text.
+- Text History.
 
-## Concept
 
-- The app would solve the real-world problem of allowing users to convert text to speech in a customizable and user-friendly way, making it easier for them to create audio content.
-- The motivation for development would be to provide a personalized and accessible way for people to convert text to speech.
+###  :file_folder: File Structure
+Below is a view of the file structure deployed to GitHub.
 
-## Process
+```plaintext
 
-- The app could be developed using a JavaScript framework like React or Angular, and the team could use tools like Git and GitHub for version control and collaboration.
-- Tasks and roles could be assigned based on team members' strengths and interests, with some members focusing on front-end development, others on back-end development, and others on design and user experience.
-- Challenges could include integrating multiple APIs, managing file uploads and storage, and ensuring a responsive and polished UI.
+cripsy-chainsaw
 
-## Demo
+Codey/
+├── assets/
+│   ├── css/
+│   │   ├── bulma.min.css    # CSS framework (Bulma)
+│   │   └── style.css        # Custom styles
+│   ├── images/
+│   │   └── logo.png         # Project logo and other images
+│   └── js/
+│       ├── main.js          # Main JavaScript file
+│       ├── api1.js          # Interactions with first server-side API
+│       ├── api2.js          # Interactions with second server-side API
+│       └── storage.js       # Client-side storage interactions
+├── index.html               # Main HTML file
+├── README.md                # Project README file
+├── LICENSE                  # Project license
+└── .github/
+    └── workflows/
+        └── deploy.yml       # GitHub Actions for automatic deployment
 
-- The app would allow users to upload files (e.g., text files, PDFs) or enter text, select conversion options (e.g., voice, language, speed), and generate audio files.
-- Users could save their favorite text-to-speech conversions, share audio files with others, and receive notifications about new conversion options.
 
-## Directions for Future Development
+THIS IS JUST AN EXAMPLE, WE CAN CHANGE THE FILE STRUCTURE THROUGH THE PROJECT.
+```
 
-- The app could be expanded to include more advanced features, such as voice cloning, custom voices, or integration with other applications.
-- The app could integrate with social media platforms to allow users to share audio files directly from the app.
+###  :hammer: Build
 
-## Presentation Requirements
+- Version Control: File changes updated and modified using terminal eg. Git bash to add, commit and pull e.t.c.
+- Code software: Used code editor e.g VS code , to modify existing code and make changes to the website as per request.
+- Modal Implementation: Developed a custom modal component to enhance user interaction without relying on native browser alerts, confirms, or prompts.
+- Responsive Design: Implemented responsive design principles to ensure the website is accessible and user-friendly on various devices, from desktops to mobile phones.
+- CSS Framework: Using a CSS framework to build a text-to-speech website can streamline the development process and ensure a consistent, responsive design.
+- Server-Side APIs: Using two server-side APIs for a text-to-speech website can offer several advantages, including separation of concerns, modular design, and leveraging specialized services.
+- Documentation: Created comprehensive documentation, including a quality README file with a unique name, description, technologies used, screenshots, and a link to the deployed application.
+- Testing: Conducted thorough testing, including unit tests and integration tests, to ensure the functionality and reliability of the application.
+- Deployment: Deployed the application to GitHub Pages for easy access and demonstration purposes.
 
-- The elevator pitch would be a concise description of the app's purpose and value proposition.
-- The concept would be explained in more detail, including the user story and motivation for development.
-- The process would be described, including the technologies used, task and role assignments, challenges, and successes.
-- The demo would showcase the app's features and functionality.
-- Directions for future development would be outlined.
-- Links to the deployed application and GitHub repository would be provided.
 
-## Grading Requirements
+### :rocket: Deployment
 
-- The project would meet the technical acceptance criteria, concept, deployment, repository quality, application quality, presentation, and collaboration requirements outlined in the project criteria.
+- To deploy the website please visit : ENTER WEBSITE HERE
+- 
 
-This text-to-speech app idea provides a unique approach to meeting the project criteria, focusing on allowing users to upload files and enter text for conversion into speech.
+ ###  :fire: Contribution
+
+ - Your contributions are always welcome and greatly appreciated. Here are some ways you can contribute to the project:
+
+ 1. **Report a bug** <br>
+ If you think you have encountered a bug, and I should know about it, feel free to report it here [here](https://github.com/alvin-est/crispy-chainsaw/issues). I will look into it and take the necessary steps.
+ 
+ 2. **Request a feature** <br>
+ If you have a feature idea that you think would enhance the project, you can request it [here](https://github.com/alvin-est/crispy-chainsaw/issues), If the feature is deemed viable, it will be considered for development. 
+
+ 3. **Create a pull request** <br>
+ The best way to contribute is by creating a pull request. The community will appreciate your efforts. You can start by picking up any open issues from [here](https://github.com/alvin-est/crispy-chainsaw/issues)and submitting a pull request.
+
+##  :page_facing_up: Resources
+Software used
+- VS Code
+- Git Bash
+Programming language and other technologies 
+- Javascript
+- HTMl
+- CSS
+Server-Side APIs
+- LIST TWO SERVER SIDE API's HERE
+CSS framework
+- LIST CSS FRAMEWORK HERE
+- Client-side storage
+
+##  :camera: Gallery
+Below is a preview photo of the website.
+
+Click here for preview photos of webpage:
+
+## :star2: Credit/Acknowledgment
+List of developers below
+
+##  :lock: License
+This project is licensed under the MIT License.
