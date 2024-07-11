@@ -23,26 +23,27 @@
   </header>
 
   <main>
-    <!-- Index HTML page -->
-     <section class="container grid">
-      <aside>
-        <img src="https://placehold.co/200" alt="Placeholder Image" class="container-fluid">
-      </aside>
-      <article>
-        <hgroup>
-          <h1>Welcome to Codey!</h1>
-          <h2>Your text-to-speech AI companion.</h2>
-        </hgroup>
-        <blockquote>
-          “Design is a funny word. Some people think 
-          design means how it looks. But of course, if 
-          you dig deeper, it's really how it works.”
-          <footer>
-            <cite>— Steve Jobs</cite>
-          </footer>
-        </blockquote>
-      </article>
-     </section>
+    <!-- Text to Speech HTML page -->
+    <section class="container">
+      <div class="grid">
+        <select>
+          <option value="" disabled selected>Speech API</option>
+          <option>Responsive Voice</option>
+          <option>Google</option>
+        </select>
+
+        <select>
+          <option value="" disabled selected>Voice Options</option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+
+      <textarea name="bio" placeholder="Write some text for Codey to read..." aria-label="Professional short bio"></textarea>
+      <small>Keep it short and sweet!</small>
+
+      <button class="container-fluid">Submit</button>
+    </section>
   </main>
     
   <footer>
