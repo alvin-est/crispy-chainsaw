@@ -9,10 +9,23 @@
 </head>
 <body>
     <textarea id="text" rows="4" cols="50">Enter text here...</textarea><br>
-    <button onclick="speak()">Speak</button>
-    <script> function speak() {
+    <H2> Responsive voice API</H2>
+    <button onclick="responsivespeak()">Speak</button>
+    <H2> Builtin Synth voice</H2>
+    <button onclick="synthspeak()">Speak</button>
+    <script>
+    
+    function responsivespeak() {
       var text = document.getElementById('text').value;
-      responsiveVoice.speak(text); }
+      var voice = "UK English Male"
+      responsiveVoice.speak(text, voice, {rate: 0.9});
+    }
+
+    function synthspeak() {
+            var text = document.getElementById('text').value;
+            var utterance = new SpeechSynthesisUtterance(text);
+            speechSynthesis.speak(utterance);
+    }
     </script>
 </body>
 </html>
