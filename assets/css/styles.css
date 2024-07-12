@@ -6,3 +6,12 @@
 .footer {
     text-align: center;
 }
+
+.rounded img {
+    border-radius: 15%;
+}
+
+.faq {
+    margin-top: 12px;
+    padding:10px;
+}
