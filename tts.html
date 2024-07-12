@@ -7,6 +7,8 @@
     <!-- Using Pico CSS as framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <!-- ResponsiveVoice AI-generated Speech Synthesis API -->
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=Uw7vRrkW"></script>
 </head>
 <body>
   <!-- Header -->
@@ -44,10 +46,10 @@
         </select>
       </div>
 
-      <textarea name="bio" placeholder="Write some text for Codey to read..." aria-label="Professional short bio"></textarea>
+      <textarea id="text" name="bio" placeholder="Write some text for Codey to read..." aria-label="Professional short bio"></textarea>
       <small>Keep it short and sweet!</small>
 
-      <button class="container-fluid">Submit</button>
+      <button id="ttsBtn" class="container-fluid">Read!</button>
     </section>
   </main>
   
@@ -56,5 +58,8 @@
     <p>Made with ❤️ ©2024</p>
   </footer>
     
+  <!-- Scripts -->
+  <script src="./assets/js/speech.js"></script>
+  <script src="./assets/js/theme.js"></script>
 </body>
 </html>
