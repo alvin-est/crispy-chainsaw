@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customizable Text-to-Speech App</title>
+    <!-- Using Pico CSS as framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 <body>
+  <!-- Header -->
   <header>
+    <!-- Navigation -->
     <nav class="navbar">
       <ul>
         <li><strong>Group 04: Codey the AI</strong></li>
@@ -18,18 +21,24 @@
         <li><a href="about.html">About</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="tts.html">Try it out!</a></li>
-        <li><button class="outline contrast">Switch Theme</button></li>
-        
+        <li><button id="switchThemeBtn" class="outline contrast">Switch Theme</button></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Main -->
   <main>
-    <!-- Index HTML page -->
      <section class="container grid">
+
+      <!-- Aside -->
       <aside>
-        <img src="https://placehold.co/200" alt="Placeholder Image" class="container-fluid">
+        <div class="rounded">
+          <!-- Credits to Google Gemini for image generation -->
+          <img src="./assets/img/codey-gemini.jpeg" alt="Codey the Bear" class="container-fluid">
+        </div>
       </aside>
+      
+      <!-- Article -->
       <article>
         <hgroup>
           <h1>Welcome to Codey!</h1>
@@ -44,9 +53,11 @@
           </footer>
         </blockquote>
       </article>
+
      </section>
   </main>
-    
+  
+  <!-- Footer -->
   <footer class="footer grid">
     <p>Made with ❤️ ©2024</p>
   </footer>
