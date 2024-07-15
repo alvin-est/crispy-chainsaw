@@ -2,21 +2,51 @@
 function runApp(event) {
     event.preventDefault();
 
+    const selectAPI = document.getElementById('API');
+    const selectVoice = document.getElementById('Voice');
+    
+    const selectedAPI = selectAPI.value;
+    const selectedVoice = selectVoice.value;
+
+    console.log(selectedVoice);
     // To-do
-    responsiveSpeak();
+    if(selectedAPI == 'Responsive Voice'){
+        responsiveSpeak(selectedVoice);
+    }
+    if(selectedAPI == 'SynthSpeech'){
+        synthSpeak(selectedVoice);
+    }
+    if(selectedAPI == 'Google'){
+        alert('Coming soon');
+    }
 }
 
 // Speech
-function responsiveSpeak() {
+function responsiveSpeak(Voice) {
     var text = document.getElementById('text').value;
-    var voice = "UK English Male"
-    responsiveVoice.speak(text, voice, {rate: 0.9});
+    responsiveVoice.speak(text, Voice, {rate: 0.9});
 }
 
-function synthSpeak() {
-          var text = document.getElementById('text').value;
-          var utterance = new SpeechSynthesisUtterance(text);
-          speechSynthesis.speak(utterance);
+function synthSpeak(Voice) {
+    const synth = window.speechSynthesis;
+    let voices = synth.getVoices();  
+    let text = document.getElementById('text').value;
+    let utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 0.9;
+    if(Voice == "Australian Female"){
+        utterance.voice = voices[0];
+    }
+    if(Voice == "Australian Male"){
+        utterance.voice = voices[44];
+    }
+    if(Voice == "UK English Male"){
+        utterance.voice = voices[160];
+    }
+    if(Voice == "UK English Female"){
+        utterance.voice = voices[159];
+    }
+    
+    speechSynthesis.speak(utterance);
 }
 
 // Button 'onClick' event listener

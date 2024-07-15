@@ -14,7 +14,8 @@
     <H2> Builtin Synth voice</H2>
     <button onclick="synthspeak()">Speak</button>
     <script>
-    
+    const synth = window.speechSynthesis;
+
     function responsivespeak() {
       var text = document.getElementById('text').value;
       var voice = "UK English Male"
@@ -22,9 +23,13 @@
     }
 
     function synthspeak() {
-            var text = document.getElementById('text').value;
-            var utterance = new SpeechSynthesisUtterance(text);
-            speechSynthesis.speak(utterance);
+       var text = document.getElementById('text').value;
+       voices = synth.getVoices();
+       console.log (voices);
+       const utterance = new SpeechSynthesisUtterance(text);
+       utterance.rate = 0.9;
+       utterance.voice = voices[0];
+       speechSynthesis.speak(utterance);
     }
     </script>
 </body>
