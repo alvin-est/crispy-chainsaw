@@ -15,3 +15,27 @@
     margin-top: 12px;
     padding:10px;
 }
+
+/* Below is code for theme switching black/white */
+
+:root {
+    --bg-color: white;
+    --text-color: black;
+}
+
+[data-theme="dark"] {
+    --bg-color: #13171F; /* exact colour of background colour */
+    --text-color: white;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#switchThemeBtn {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: 1px solid var(--btn-text);
+}
