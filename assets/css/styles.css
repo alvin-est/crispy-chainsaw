@@ -16,7 +16,24 @@
     padding:10px;
 }
 
-/*  */
+/* styles for modal */
+
+.newsletterImg {
+    width: 50%;
+    height: 50%;
+    padding-bottom: 20px;
+    margin: 0 auto;
+}
+
+.centered {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.modalh1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
 
 /* Below is code for theme switching black/white */

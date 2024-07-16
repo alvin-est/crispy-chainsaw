@@ -45,20 +45,30 @@
       </section>
      </section>
 
-     <!-- Modal -->
+     <!-- Modal (Pop-up) -->
      <dialog id="popupModal">
       <article>
-        <header class="newsletterHead">
-          <h1>Sign up to our newsletter:</h1>
+        <header>
+          <h1 class="centered modalh1">Sign up to our newsletter:</h1>
         </header>
-          <img src="./assets/img/codey-newsletter.jpeg" alt="Codey the Bear" class="container-fluid">
-        <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" />
+
+        <section class="centered">
+          <div class="newsletterImg rounded">
+            <img src="./assets/img/codey-newsletter.jpeg" alt="Codey the Bear">
+          </div>
+          <input id="modalEmail" type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" />
+          <small id="email-helper">
+            We'll never share your email with anyone else.
+          </small>
+
+          <span id="confirmationMsg"></span>
+        </section>
+
         <footer>
-          <button className="secondary">
-            Cancel
-          </button>
-          <button>Confirm</button>
+          <button id="modalClose" className="secondary">Close</button>
+          <button id="modalConfirm">Confirm</button>
         </footer>
+
       </article>
     </dialog>
   </main>
