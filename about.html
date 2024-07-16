@@ -28,7 +28,7 @@
 
   <!-- Main -->
   <main>
-     <section class="container grid">
+     <section class="container">
       <!-- Article -->
       <article>
         <hgroup class="container-fluid">
@@ -40,7 +40,27 @@
         </section>
       </article>
 
+      <section class="container">
+        <div id="newsletterBtn" role="button" tabindex="0">Subscribe to our newsletter!</div>
+      </section>
      </section>
+
+     <!-- Modal -->
+     <dialog id="popupModal">
+      <article>
+        <header class="newsletterHead">
+          <h1>Sign up to our newsletter:</h1>
+        </header>
+          <img src="./assets/img/codey-newsletter.jpeg" alt="Codey the Bear" class="container-fluid">
+        <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" />
+        <footer>
+          <button className="secondary">
+            Cancel
+          </button>
+          <button>Confirm</button>
+        </footer>
+      </article>
+    </dialog>
   </main>
   
   <!-- Footer -->
@@ -51,6 +71,7 @@
    <!-- Scripts -->
    <script src="./assets/js/speech.js"></script>
    <script src="./assets/js/theme.js"></script>
+   <script src="./assets/js/about.js"></script>
     
 </body>
 </html>
