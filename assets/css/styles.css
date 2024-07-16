@@ -59,3 +59,10 @@ body {
     color: var(--btn-text);
     border: 1px solid var(--btn-text);
 }
+
+/* below is code for volume control rang */
+
+input[type="range"] {
+    width: 400px; /* Adjust the width as needed */
+    margin-top: 10px ;
+}
