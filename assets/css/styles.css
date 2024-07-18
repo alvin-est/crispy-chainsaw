@@ -66,3 +66,12 @@ input[type="range"] {
     width: 400px; /* Adjust the width as needed */
     margin-top: 10px ;
 }
+
+/* tts.html */
+.side-padding-10 {
+    width: 90%;
+}
+
+@media screen and (max-width: 767px) {
+    
+}
