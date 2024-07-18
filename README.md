@@ -1,6 +1,6 @@
 # Codey the AI
 # Introduction
- This interactive app would solve the real-world problem of allowing users to convert text to speech in a customizable and user-friendly way, making it easier for them to create audio content.
+ This is an interactive app would solve the real-world problem of allowing users to convert text to speech in a customizable and user-friendly way, making it easier for them to create audio content.
 
 
 ## :ledger: Index
@@ -17,11 +17,10 @@
 - [License](#lock-license)
 
 ##  :beginner: About
-- This website is a versatile text-to-speech application designed to convert user input into spoken words. Users can provide input through text, file uploads, or voice activity, and receive the output in their chosen voice.
+- This website is a versatile text-to-speech application designed to convert user input into spoken words. Users can provide input through text, file uploads and receive the output in their chosen voice.
   
 
 Features include:
-- ENTER MORE FEATURES BELOW 
 - Input a message and have it spoken aloud
 - Select from available voices
 - Responsive design using CSS framworks such as (ENTER CSS FRAMWORK HERE)
@@ -33,8 +32,11 @@ Features include:
 - Voice Speed Control.
 - Pitch Control.
 - Volume Control.
+Features to be included in the future:
 - Save and Load Text.
 - Text History.
+- Additional choice of voices
+- Attach file formats such as files such as .pdf, .docx, .txt, .md
 
 
 ###  :file_folder: File Structure
@@ -42,29 +44,31 @@ Below is a view of the file structure deployed to GitHub.
 
 ```plaintext
 
-cripsy-chainsaw
+crispy-chainsaw
 
-Codey/
+Codey
 ├── assets/
 │   ├── css/
-│   │   ├── bulma.min.css    # CSS framework (Bulma)
-│   │   └── style.css        # Custom styles
-│   ├── images/
-│   │   └── logo.png         # Project logo and other images
+│   │   └── styles.css           # Custom styles
+│   ├── img/
+│   │   ├── codey-gemini.jpeg    # Image file
+│   │   └── codey-newsletter.jpeg # Image file
 │   └── js/
-│       ├── main.js          # Main JavaScript file
-│       ├── api1.js          # Interactions with first server-side API
-│       ├── api2.js          # Interactions with second server-side API
-│       └── storage.js       # Client-side storage interactions
-├── index.html               # Main HTML file
-├── README.md                # Project README file
-├── LICENSE                  # Project license
-└── .github/
-    └── workflows/
-        └── deploy.yml       # GitHub Actions for automatic deployment
-
-
-THIS IS JUST AN EXAMPLE, WE CAN CHANGE THE FILE STRUCTURE THROUGH THE PROJECT.
+│       ├── about.js             # JavaScript file for about page
+│       ├── speech.js            # JavaScript file for speech functionality
+│       └── theme.js             # JavaScript file for theme management
+├── misc/
+│   ├── preview photos           # Folder for preview photos
+│   ├── Project README.md        # Project README file
+│   └── README (AI-generated).md # AI-generated README file
+├── .gitignore                   # Git ignore file
+├── about.html                   # About page HTML file
+├── faq.html                     # FAQ page HTML file
+├── index.html                   # Main HTML file
+├── LICENSE                      # Project license
+├── README.md                    # Main README file
+├── tts.html                     # TTS (Text-to-Speech) page HTML file
+└── ttsdemo.html                 # TTS demo page HTML file
 ```
 
 ###  :hammer: Build
@@ -82,7 +86,7 @@ THIS IS JUST AN EXAMPLE, WE CAN CHANGE THE FILE STRUCTURE THROUGH THE PROJECT.
 
 ### :rocket: Deployment
 
-- To deploy the website please visit : ENTER WEBSITE HERE
+- To deploy the website please visit : (https://alvin-est.github.io/crispy-chainsaw/)
 - 
 
  ###  :fire: Contribution
@@ -107,15 +111,17 @@ Programming language and other technologies
 - HTMl
 - CSS
 Server-Side APIs
-- LIST TWO SERVER SIDE API's HERE
+- Responsive voice API
+- 
 CSS framework
-- LIST CSS FRAMEWORK HERE
-- Client-side storage
+- Pico
 
 ##  :camera: Gallery
-Below is a preview photo of the website.
+Below is preview photos of the website:
 
-Click here for preview photos of webpage:
+Click here for preview photos!: https://imgur.com/a/xGXiBRo
+
+
 
 ## :star2: Credit/Acknowledgment
 List of developers below

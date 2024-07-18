@@ -38,29 +38,32 @@
 
 /* Below is code for theme switching black/white */
 
+
+/* defines default CSS custom properties (also known as CSS variables) for the root element (:root) of the document. */
 :root {
     --bg-color: white;
     --text-color: black;
 }
 
+[data-theme="light"] {
+    --background-color: white;
+    --text-color: black;
+}
+
 [data-theme="dark"] {
-    --bg-color: #13171F; /* exact colour of background colour */
+    --bg-color: #13171F; /* Exact colour of background colour */
     --text-color: white;
 }
 
+
+/* Adds a transition effect of 0.3 seconds for the background and text color changes, making the switch between themes smoother. */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
 }
 
-#switchThemeBtn {
-    background-color: var(--btn-bg);
-    color: var(--btn-text);
-    border: 1px solid var(--btn-text);
-}
-
-/* below is code for volume control rang */
+/* Below is code for volume control range */
 
 input[type="range"] {
     width: 400px; /* Adjust the width as needed */

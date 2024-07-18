@@ -20,5 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
 // This code enables the user to switch between light and dark mode , with the selected theme saved in local storage. 
 // So the theme can be re applied whenever the user returns to the site.
