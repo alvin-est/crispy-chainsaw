@@ -39,7 +39,6 @@
           <option>SynthSpeech</option>
           <option>Google</option>
         </select>
-
         <select id="Voice">
           <option value="" disabled selected>Voice Options</option>
           <option>UK English Male</option>
@@ -47,29 +46,44 @@
           <option>Australian Male</option>
           <option>Australian Female</option>
         </select>
+        <select id="Translate">
+          <option value="" disabled selected>Translate From</option>
+          <option value="" disabled>English</option>
+          <option>French</option>
+          <option>German</option>
+          <option>Japanese</option>
+          <option>Afrikaans</option>
+        </select>
       </div>
-
-      <textarea id="text" name="bio" placeholder="Write some text for Codey to read..." aria-label="Professional short bio"></textarea>
-      <small>Keep it short and sweet!</small>
 
       <div class="grid">
-      
-        <div class="voice-settings">
-        <label for="volume">Volume Control</label>
-        <input type="range" id="volume" value="30">
-      </div>
-      
-      <div class="voice-settings">
-        <label for="speed">Voice Speed Control</label>
-        <input type="range" id="speed">
-      </div>
-      
-      <div class="voice-settings">
-        <label for="pitch">Pitch Control</label>
-        <input type="range" id="pitch" value="30">
+        <section>
+          <textarea id="text" name="bio" placeholder="Write some text for Codey to read..." aria-label="Professional short bio"></textarea>
+          <small>Keep it short and sweet!</small>
+        </section>
+        <section>
+          <textarea id="langOutput" name="disabled" disabled>
+            Translated text will show here...
+          </textarea>
+        </section>
       </div>
 
-    </div>
+      <div class="grid">
+        <div class="voice-settings">
+          <label for="volume">Volume Control</label>
+          <input type="range" id="volume" value="30">
+        </div>
+      
+        <div class="voice-settings">
+          <label for="speed">Voice Speed Control</label>
+          <input type="range" id="speed">
+        </div>
+      
+        <div class="voice-settings">
+          <label for="pitch">Pitch Control</label>
+          <input type="range" id="pitch" value="30">
+        </div>
+     </div>
 
       <button id="ttsBtn" class="container-fluid">Read!</button>
     </section>
@@ -83,5 +97,6 @@
   <!-- Scripts -->
   <script src="./assets/js/speech.js"></script>
   <script src="./assets/js/theme.js"></script>
+  <script src="./assets/js/translate.js"></script>
 </body>
 </html>
