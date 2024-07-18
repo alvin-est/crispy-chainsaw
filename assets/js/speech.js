@@ -1,23 +1,29 @@
-// Conditionals
-function runApp(event) {
-    event.preventDefault();
+// Local storage Handling
+function getOptionSettings() {
+    const strDefVoice = localStorage.getItem('DefaultVoice');
+    const nDefVolume = localStorage.getItem('DefaultVolume');
+    const nDefPitch = localStorage.getItem('DefaultPitch');
+    const nDefRate = localStorage.getItem('DefaultRate)');
+    let objOptions = {};
 
-    const selectAPI = document.getElementById('API');
-    const selectVoice = document.getElementById('Voice');
-    
-    const selectedAPI = selectAPI.value;
-    const selectedVoice = selectVoice.value;
+    if(strDefVoice == null) {
+        strDefVoice = "UK English Male"
+    }
+    if(nDefVolume == null) {
+        nDefVolume = 1; 
+    }
+    if(nDefPitch == null) {
+        nDefPitch = 1;
+    }
+    if(nDefRate == null) {
+        nDefRate = 1;
+    }
+    objOptions.voice = strVoice;
+    objOptions.volume = nDefVolume;
+    objOptions.pitch = nDefPitch;
+    objOptions.rate = nDefRate;
 
-    console.log(selectedVoice);
-    // To-do
-    if(selectedAPI == 'Responsive Voice'){
-        responsiveSpeak(selectedVoice);
-    }
-    if(selectedAPI == 'SynthSpeech'){
-        synthSpeak(selectedVoice);
-    }
-    if(selectedAPI == 'Google'){
-        alert('Coming soon');
+    return objOptions;
     }
 }
 
@@ -47,6 +53,31 @@ function synthSpeak(Voice) {
     }
     
     speechSynthesis.speak(utterance);
+}
+
+function runApp(event) {
+    event.preventDefault();
+
+    let objOptions = getOptionSettings();
+
+    const selectAPI = document.getElementById('API');
+    const selectVoice = document.getElementById('Voice');
+    
+    const selectedAPI = selectAPI.value;
+    let selectedVoice = selectVoice.value;
+    if(selectedVoice == null) {
+        selectedVoice = objOption.voice;
+    }
+
+
+    console.log(selectedVoice);
+    // To-do
+    if(selectedAPI == 'Responsive Voice'){
+        responsiveSpeak(selectedVoice);
+    }
+    if(selectedAPI == 'SynthSpeech'){
+        synthSpeak(selectedVoice);
+    }
 }
 
 // Button 'onClick' event listener
