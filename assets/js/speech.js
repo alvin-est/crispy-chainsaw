@@ -4,9 +4,11 @@ function runApp(event) {
 
     const selectAPI = document.getElementById('API');
     const selectVoice = document.getElementById('Voice');
+    const selectLang = document.getElementById('Translate');
     
     const selectedAPI = selectAPI.value;
     const selectedVoice = selectVoice.value;
+    const selectedLang = selectLang.value;
 
     console.log(selectedVoice);
     // To-do
@@ -19,6 +21,9 @@ function runApp(event) {
     if(selectedAPI == 'Google'){
         alert('Coming soon');
     }
+
+    // Call Translate function
+    translate(`${document.getElementById("text").value}`, selectedLang);
 }
 
 // Speech
