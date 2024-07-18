@@ -1,19 +1,17 @@
-// Local storage Handling
-function getOptionSettings() {
-    const strDefVoice = localStorage.getItem('DefaultVoice');
-    const nDefVolume = localStorage.getItem('DefaultVolume');
-    const nDefPitch = localStorage.getItem('DefaultPitch');
-    const nDefRate = localStorage.getItem('DefaultRate)');
-    let objOptions = {};
+// Conditionals
+function runApp(event) {
+    event.preventDefault();
 
-    if(strDefVoice == null) {
-        strDefVoice = "UK English Male"
-    }
-    if(nDefVolume == null) {
-        nDefVolume = 1; 
-    }
-    if(nDefPitch == null) {
-        nDefPitch = 1;
+    const selectAPI = document.getElementById('API');
+    const selectVoice = document.getElementById('Voice');
+    
+    const selectedAPI = selectAPI.value;
+    const selectedVoice = selectVoice.value;
+
+    console.log(selectedVoice);
+    // To-do
+    if(selectedAPI == 'Responsive Voice'){
+        responsiveSpeak(selectedVoice);
     }
     if(nDefRate == null) {
         nDefRate = 1;
@@ -25,6 +23,9 @@ function getOptionSettings() {
 
     return objOptions;
     }
+
+    // Call Translate function
+    translate(`${document.getElementById("text").value}`, selectedLang);
 }
 
 // Speech
