@@ -1,22 +1,24 @@
-// Conditionals
-function runApp(event) {
-    event.preventDefault();
+// Local storage Handling
+function getOptionSettings() {
+    let strDefVoice = localStorage.getItem('DefaultVoice');
+    let nDefVolume = localStorage.getItem('DefaultVolume');
+    let nDefPitch = localStorage.getItem('DefaultPitch');
+    let nDefRate = localStorage.getItem('DefaultRate)');
+    let objOptions = {};
 
-    const selectAPI = document.getElementById('API');
-    const selectVoice = document.getElementById('Voice');
-    
-    const selectedAPI = selectAPI.value;
-    const selectedVoice = selectVoice.value;
-
-    console.log(selectedVoice);
-    // To-do
-    if(selectedAPI == 'Responsive Voice'){
-        responsiveSpeak(selectedVoice);
+    if(strDefVoice == null) {
+        strDefVoice = "UK English Male"
+    }
+    if(nDefVolume == null) {
+        nDefVolume = 1; 
+    }
+    if(nDefPitch == null) {
+        nDefPitch = 1;
     }
     if(nDefRate == null) {
-        nDefRate = 1;
+        nDefRate = 0.9;
     }
-    objOptions.voice = strVoice;
+    objOptions.voice = strDefVoice;
     objOptions.volume = nDefVolume;
     objOptions.pitch = nDefPitch;
     objOptions.rate = nDefRate;
@@ -24,32 +26,42 @@ function runApp(event) {
     return objOptions;
     }
 
-    // Call Translate function
-    translate(`${document.getElementById("text").value}`, selectedLang);
+function storeOptionSettings(objOptions) {
+    localStorage.setItem("DefaultVoice", objOptions.voice);
+    localStorage.setItem("DefaultVolume", objOptions.volume);
+    localStorage.setItem("DefaultPitch", objOptions.pitch);
+    localStorage.setItem("DefaultRate", objOptions.rate);
 }
+
+// Call Translate function
+//    translate(`${document.getElementById("text").value}`, selectedLang);
 
 // Speech
-function responsiveSpeak(Voice) {
+function responsiveSpeak(Voice, objResponsiveParameters) {
     var text = document.getElementById('text').value;
-    responsiveVoice.speak(text, Voice, {rate: 0.9});
+    console.log(Voice);
+    console.log(objResponsiveParameters);
+    responsiveVoice.speak(text, Voice, objResponsiveParameters);
 }
 
-function synthSpeak(Voice) {
+function synthSpeak(objOptions) {
     const synth = window.speechSynthesis;
     let voices = synth.getVoices();  
     let text = document.getElementById('text').value;
     let utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.9;
-    if(Voice == "Australian Female"){
+    utterance.pitch = objOptions.pitch;
+    utterance.rate = objOptions.rate;
+    utterance.volume = objOptions.volume;
+    if(objOptions.voice == "Australian Female"){
         utterance.voice = voices[0];
     }
-    if(Voice == "Australian Male"){
+    if(objOptions.voice == "Australian Male"){
         utterance.voice = voices[44];
     }
-    if(Voice == "UK English Male"){
+    if(objOptions.voice == "UK English Male"){
         utterance.voice = voices[160];
     }
-    if(Voice == "UK English Female"){
+    if(objOptions.voice == "UK English Female"){
         utterance.voice = voices[159];
     }
     
@@ -60,25 +72,42 @@ function runApp(event) {
     event.preventDefault();
 
     let objOptions = getOptionSettings();
+    console.log(objOptions);
 
     const selectAPI = document.getElementById('API');
     const selectVoice = document.getElementById('Voice');
+    const selectVolume = document.getElementById('volume');
+    const selectPitch = document.getElementById('pitch');
+    const selectRate = document.getElementById('speed');
     
-    const selectedAPI = selectAPI.value;
+    let selectedAPI = selectAPI.value;
     let selectedVoice = selectVoice.value;
-    if(selectedVoice == null) {
-        selectedVoice = objOption.voice;
+    
+    if(selectedAPI == null) {
+        selectedAPI = "SynthSpeech";
     }
 
+    if(selectedVoice == null) {
+        selectedVoice = objOptions.voice;
+    }
 
-    console.log(selectedVoice);
+    objOptions.voice = selectVoice.value;
+    objOptions.volume = Number(selectVolume.value / 10);
+    objOptions.pitch = Number(selectPitch.value);
+    objOptions.rate = Number(selectRate.value / 10);
+
     // To-do
+    objResponsiveParameters = {};
+    objResponsiveParameters.pitch = objOptions.pitch;
+    objResponsiveParameters.rate = objOptions.rate;
+    objResponsiveParameters.volume = objOptions.volume;
     if(selectedAPI == 'Responsive Voice'){
-        responsiveSpeak(selectedVoice);
+        responsiveSpeak(objOptions.voice, objResponsiveParameters);
     }
     if(selectedAPI == 'SynthSpeech'){
-        synthSpeak(selectedVoice);
+        synthSpeak(objOptions);
     }
+    storeOptionSettings(objOptions);
 }
 
 // Button 'onClick' event listener
