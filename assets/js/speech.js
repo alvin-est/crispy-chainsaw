@@ -33,15 +33,11 @@ function storeOptionSettings(objOptions) {
     localStorage.setItem("DefaultRate", objOptions.rate);
 }
 
-// Call Translate function
-//    translate(`${document.getElementById("text").value}`, selectedLang);
-
 // Speech
-function responsiveSpeak(Voice, objResponsiveParameters) {
-    var text = document.getElementById('text').value;
-    console.log(Voice);
-    console.log(objResponsiveParameters);
-    responsiveVoice.speak(text, Voice, objResponsiveParameters);
+async function responsiveSpeak(Voice, objResponsiveParameters) {
+    const text = document.getElementById('langOutput').textContent;
+    console.log(text);
+    await responsiveVoice.speak(text, Voice, objResponsiveParameters);
 }
 
 function synthSpeak(objOptions) {
@@ -68,21 +64,26 @@ function synthSpeak(objOptions) {
     speechSynthesis.speak(utterance);
 }
 
+  
+
 function runApp(event) {
     event.preventDefault();
 
+    //Retrieve our options from Local Storage 
     let objOptions = getOptionSettings();
-    console.log(objOptions);
 
     const selectAPI = document.getElementById('API');
+    const selectLang = document.getElementById('Translate')
     const selectVoice = document.getElementById('Voice');
     const selectVolume = document.getElementById('volume');
     const selectPitch = document.getElementById('pitch');
     const selectRate = document.getElementById('speed');
+  
     
     let selectedAPI = selectAPI.value;
+    let selectedLanguage = selectLang.value;
     let selectedVoice = selectVoice.value;
-    
+
     if(selectedAPI == null) {
         selectedAPI = "SynthSpeech";
     }
@@ -91,10 +92,54 @@ function runApp(event) {
         selectedVoice = objOptions.voice;
     }
 
-    objOptions.voice = selectVoice.value;
+    // Call Translate function first
+    translate(`${document.getElementById("text").value}`, selectedLanguage);
+
+    if(selectedVoice == 'Male' && selectedLanguage =="en"){
+        objOptions.voice = "UK English Male";
+    }
+
+    if(selectedVoice == 'Male' && selectedLanguage =="fr"){
+        objOptions.voice = "French Male";
+    }
+
+    if(selectedVoice == 'Male' && selectedLanguage =="de"){
+        objOptions.voice = "Deutsch Male";
+    }
+
+    if(selectedVoice == 'Male' && selectedLanguage =="ja"){
+        objOptions.voice = "Japanese Male";
+    }
+
+    if(selectedVoice == 'Male' && selectedLanguage =="ar"){
+        objOptions.voice = "Arabic Male";
+    }
+
+    if(selectedVoice == 'Female' && selectedLanguage =="en"){
+        objOptions.voice = "UK English Female";
+    }
+
+    if(selectedVoice == 'Female' && selectedLanguage=="fr"){
+        objOptions.voice = "French Female";
+    }
+
+    if(selectedVoice == 'Female' && selectedLanguage=="de"){
+        objOptions.voice = "Deutsch Female";
+    }
+
+    if(selectedVoice == 'Female' && selectedLanguage =="ja"){
+        objOptions.voice = "Japanese Female";
+    }
+
+    if(selectedVoice == 'Female' && selectedLanguage =="ar"){
+        objOptions.voice = "Arabic Female";
+    }
+    
     objOptions.volume = Number(selectVolume.value / 10);
     objOptions.pitch = Number(selectPitch.value);
     objOptions.rate = Number(selectRate.value / 10);
+
+    console.log(objOptions);
 
     // To-do
     objResponsiveParameters = {};
