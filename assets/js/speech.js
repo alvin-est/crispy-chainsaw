@@ -1,57 +1,158 @@
-// Conditionals
-function runApp(event) {
-    event.preventDefault();
+// Local storage Handling
+function getOptionSettings() {
+    let strDefVoice = localStorage.getItem('DefaultVoice');
+    let nDefVolume = localStorage.getItem('DefaultVolume');
+    let nDefPitch = localStorage.getItem('DefaultPitch');
+    let nDefRate = localStorage.getItem('DefaultRate)');
+    let objOptions = {};
 
-    const selectAPI = document.getElementById('API');
-    const selectVoice = document.getElementById('Voice');
-    const selectLang = document.getElementById('Translate');
-    
-    const selectedAPI = selectAPI.value;
-    const selectedVoice = selectVoice.value;
-    const selectedLang = selectLang.value;
+    if(strDefVoice == null) {
+        strDefVoice = "UK English Male"
+    }
+    if(nDefVolume == null) {
+        nDefVolume = 1; 
+    }
+    if(nDefPitch == null) {
+        nDefPitch = 1;
+    }
+    if(nDefRate == null) {
+        nDefRate = 0.9;
+    }
+    objOptions.voice = strDefVoice;
+    objOptions.volume = nDefVolume;
+    objOptions.pitch = nDefPitch;
+    objOptions.rate = nDefRate;
 
-    console.log(selectedVoice);
-    // To-do
-    if(selectedAPI == 'Responsive Voice'){
-        responsiveSpeak(selectedVoice);
-    }
-    if(selectedAPI == 'SynthSpeech'){
-        synthSpeak(selectedVoice);
-    }
-    if(selectedAPI == 'Google'){
-        alert('Coming soon');
+    return objOptions;
     }
 
-    // Call Translate function
-    translate(`${document.getElementById("text").value}`, selectedLang);
+function storeOptionSettings(objOptions) {
+    localStorage.setItem("DefaultVoice", objOptions.voice);
+    localStorage.setItem("DefaultVolume", objOptions.volume);
+    localStorage.setItem("DefaultPitch", objOptions.pitch);
+    localStorage.setItem("DefaultRate", objOptions.rate);
 }
 
 // Speech
-function responsiveSpeak(Voice) {
-    var text = document.getElementById('text').value;
-    responsiveVoice.speak(text, Voice, {rate: 0.9});
+async function responsiveSpeak(Voice, objResponsiveParameters) {
+    const text = document.getElementById('langOutput').textContent;
+    console.log(text);
+    await responsiveVoice.speak(text, Voice, objResponsiveParameters);
 }
 
-function synthSpeak(Voice) {
+function synthSpeak(objOptions) {
     const synth = window.speechSynthesis;
     let voices = synth.getVoices();  
     let text = document.getElementById('text').value;
     let utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.9;
-    if(Voice == "Australian Female"){
+    utterance.pitch = objOptions.pitch;
+    utterance.rate = objOptions.rate;
+    utterance.volume = objOptions.volume;
+    if(objOptions.voice == "Australian Female"){
         utterance.voice = voices[0];
     }
-    if(Voice == "Australian Male"){
+    if(objOptions.voice == "Australian Male"){
         utterance.voice = voices[44];
     }
-    if(Voice == "UK English Male"){
+    if(objOptions.voice == "UK English Male"){
         utterance.voice = voices[160];
     }
-    if(Voice == "UK English Female"){
+    if(objOptions.voice == "UK English Female"){
         utterance.voice = voices[159];
     }
     
     speechSynthesis.speak(utterance);
+}
+
+  
+
+function runApp(event) {
+    event.preventDefault();
+
+    //Retrieve our options from Local Storage 
+    let objOptions = getOptionSettings();
+
+    const selectAPI = document.getElementById('API');
+    const selectLang = document.getElementById('Translate')
+    const selectVoice = document.getElementById('Voice');
+    const selectVolume = document.getElementById('volume');
+    const selectPitch = document.getElementById('pitch');
+    const selectRate = document.getElementById('speed');
+  
+    
+    let selectedAPI = selectAPI.value;
+    let selectedLanguage = selectLang.value;
+    let selectedVoice = selectVoice.value;
+
+    if(selectedAPI == null) {
+        selectedAPI = "SynthSpeech";
+    }
+
+    if(selectedVoice == null) {
+        selectedVoice = objOptions.voice;
+    }
+
+    // Call Translate function first
+    translate(`${document.getElementById("text").value}`, selectedLanguage);
+
+    if(selectedVoice == 'Male' && selectedLanguage =="en"){
+        objOptions.voice = "UK English Male";
+    }
+
+    if(selectedVoice == 'Male' && selectedLanguage =="fr"){
+        objOptions.voice = "French Male";
+    }
+
+    if(selectedVoice == 'Male' && selectedLanguage =="de"){
+        objOptions.voice = "Deutsch Male";
+    }
+
+    if(selectedVoice == 'Male' && selectedLanguage =="ja"){
+        objOptions.voice = "Japanese Male";
+    }
+
+    if(selectedVoice == 'Male' && selectedLanguage =="ar"){
+        objOptions.voice = "Arabic Male";
+    }
+
+    if(selectedVoice == 'Female' && selectedLanguage =="en"){
+        objOptions.voice = "UK English Female";
+    }
+
+    if(selectedVoice == 'Female' && selectedLanguage=="fr"){
+        objOptions.voice = "French Female";
+    }
+
+    if(selectedVoice == 'Female' && selectedLanguage=="de"){
+        objOptions.voice = "Deutsch Female";
+    }
+
+    if(selectedVoice == 'Female' && selectedLanguage =="ja"){
+        objOptions.voice = "Japanese Female";
+    }
+
+    if(selectedVoice == 'Female' && selectedLanguage =="ar"){
+        objOptions.voice = "Arabic Female";
+    }
+    
+    objOptions.volume = Number(selectVolume.value / 10);
+    objOptions.pitch = Number(selectPitch.value);
+    objOptions.rate = Number(selectRate.value / 10);
+
+    console.log(objOptions);
+
+    // To-do
+    objResponsiveParameters = {};
+    objResponsiveParameters.pitch = objOptions.pitch;
+    objResponsiveParameters.rate = objOptions.rate;
+    objResponsiveParameters.volume = objOptions.volume;
+    if(selectedAPI == 'Responsive Voice'){
+        responsiveSpeak(objOptions.voice, objResponsiveParameters);
+    }
+    if(selectedAPI == 'SynthSpeech'){
+        synthSpeak(objOptions);
+    }
+    storeOptionSettings(objOptions);
 }
 
 // Button 'onClick' event listener
