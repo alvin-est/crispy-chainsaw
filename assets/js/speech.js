@@ -42,25 +42,44 @@ async function responsiveSpeak(Voice, objResponsiveParameters) {
 
 function synthSpeak(objOptions) {
     const synth = window.speechSynthesis;
-    let voices = synth.getVoices();  
-    let text = document.getElementById('text').value;
+    let voices = synth.getVoices();
+    console.log(voices); 
+    const text = document.getElementById('langOutput').textContent;
     let utterance = new SpeechSynthesisUtterance(text);
     utterance.pitch = objOptions.pitch;
     utterance.rate = objOptions.rate;
     utterance.volume = objOptions.volume;
-    if(objOptions.voice == "Australian Female"){
-        utterance.voice = voices[0];
-    }
-    if(objOptions.voice == "Australian Male"){
-        utterance.voice = voices[44];
-    }
-    if(objOptions.voice == "UK English Male"){
-        utterance.voice = voices[160];
-    }
     if(objOptions.voice == "UK English Female"){
         utterance.voice = voices[159];
     }
-    
+    if(objOptions.voice == "UK English Male"){
+        utterance.voice = voices[44];
+    }
+    if(objOptions.voice == "French Male"){
+        utterance.voice = voices[163];
+    }
+    if(objOptions.voice == "French Female"){
+        utterance.voice = voices[39];
+    }
+    if(objOptions.voice == "Deutsch Male"){
+        utterance.voice = voices[157];
+    }
+    if(objOptions.voice == "Deutsch Female"){
+        utterance.voice = voices[32];
+    }
+    if(objOptions.voice == "Japanese Male"){
+        utterance.voice = voices[167];
+    }
+    if(objOptions.voice == "Japanese Female"){
+        utterance.voice = voices[167];
+    }
+    if(objOptions.voice == "Arabic Male"){
+        utterance.voice = voices[158];
+    }
+    if(objOptions.voice == "Arabic Female"){
+        utterance.voice = voices[158];
+    }
+
     speechSynthesis.speak(utterance);
 }
 
