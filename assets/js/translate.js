@@ -1,23 +1,38 @@
+// Variables
 const API_KEY = 'AIzaSyCMJ05_dwlQH6ipqi-7lOuxRcSQYw2-n2Q';
-const sourceLang = 'en';
-const targetLang = 'fr';
-const text = 'Hello, world!';
+let result = {}; // Create JS object
+let url = '';
 
-// alert("Let's get ready to rumbleee!!");
+function translate(myText, sourceLang, targetLang) {
+    // Grabs user input and generates API URL
+    url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}&source=${sourceLang}&target=${targetLang}&q=${myText}`;
 
-const url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}&source=${sourceLang}&target=${targetLang}&q=${text}`;
+    // Add key: value to our object
+    result.language = targetLang;
 
-fetch(url)
+    // Fetch from Google API
+    fetchData(url);
 
-.then(response => response.json())
+    // Return object
+    return result;
+}
 
-.then(data => {
+async function fetchData(url) {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const translatedText = data.data.translations[0].translatedText;
 
-const translatedText = data.data.translations[0].translatedText;
+        // Update UI output
+        const outputEl = document.getElementById("langOutput");
+        outputEl.textContent = translatedText;
 
-console.log(translatedText); // "Bonjour, le monde!"
+        // Add key: value to our object
+        result.output = translatedText;
 
-const outputEl = document.getElementById("langOutput");
-outputEl.textContent = translatedText;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 
-});
+
+}
