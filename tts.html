@@ -60,20 +60,18 @@
         <div class="container-fluid centered">
           <div class="voice-settings">
             <label for="volume">Volume Control</label>
-            <input type="range" id="volume" min="0" max="100" step="1" disabled>
+            <input type="range" id="volume" min="0" max="10" step="1">
           </div>
         
           <div class="voice-settings">
             <label for="speed">Voice Speed Control</label>
-            <input type="range" id="speed" min="0" max="100" step="1" disabled>
+            <input type="range" id="speed" min="0" max="15" step="3">
           </div>
         
           <div class="voice-settings">
             <label for="pitch">Pitch Control</label>
-            <input type="range" id="pitch" min="0" max="100" step="0.5" disabled>
+            <input type="range" id="pitch" min="0" max="2" step="0.5">
           </div>
-  
-          <small class="sliderCaption">Coming soon!</small>
        </div>
       </details>
 
@@ -93,7 +91,7 @@
             <option value="en" disabled selected>Translate To</option>
             <option value="en">English</option>
             <option value="fr">French</option>
-            <option value="de" disabled>German</option> <!-- Responsive voice does not support -->
+            <option value="de">German</option>
             <option value="ja">Japanese</option>
             <option value="ar">Arabic</option>
           </select>
