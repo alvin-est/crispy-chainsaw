@@ -1,11 +1,44 @@
-// HTML element selectors
+// Global HTML element selectors
 const API = document.getElementById("API");
 const Voice = document.getElementById("Voice");
 const userInput = document.getElementById("ttsUserInput");
 const readButton = document.getElementById("ttsBtn");
 
-// Button onClick event listener
-readButton.addEventListener("click", read);
+// Local storage Handling
+function getOptionSettings() {
+    let strDefVoice = localStorage.getItem('DefaultVoice');
+    let nDefVolume = localStorage.getItem('DefaultVolume');
+    let nDefPitch = localStorage.getItem('DefaultPitch');
+    let nDefRate = localStorage.getItem('DefaultRate)');
+    let objOptions = {};
+
+    if(strDefVoice == null) {
+        strDefVoice = "US English Male"
+    }
+    if(nDefVolume == null) {
+        nDefVolume = 1; 
+    }
+    if(nDefPitch == null) {
+        nDefPitch = 1;
+    }
+    if(nDefRate == null) {
+        nDefRate = 0.9;
+    }
+    objOptions.voice = strDefVoice;
+    objOptions.volume = nDefVolume;
+    objOptions.pitch = nDefPitch;
+    objOptions.rate = nDefRate;
+
+    return objOptions;
+    }
+
+//Save options to local storage 
+function storeOptionSettings(objOptions) {
+    localStorage.setItem("DefaultVoice", objOptions.voice);
+    localStorage.setItem("DefaultVolume", objOptions.volume);
+    localStorage.setItem("DefaultPitch", objOptions.pitch);
+    localStorage.setItem("DefaultRate", objOptions.rate);
+}
 
 // Run this function once user clicks the button
 function read() {
@@ -39,13 +72,18 @@ function read() {
     }
 
     // Audio Output options code here
-    // TODO
-
+    let objOptions = getOptionSettings();
+    const selectVolume = document.getElementById('volume');
+    const selectPitch = document.getElementById('pitch');
+    const selectRate = document.getElementById('speed');
+    objOptions.volume = Number(selectVolume.value / 10);
+    objOptions.pitch = Number(selectPitch.value);
+    objOptions.rate = Number(selectRate.value / 10);
 
     // Pass to API
     switch(API.value) {
         case "responsiveVoice":
-            speak_API1(text,lang);
+            responsiveVoiceSpeak(text,lang, objOptions);
             break;
         case "synthSpeech":
             console.log("coming soon!");
@@ -55,9 +93,10 @@ function read() {
     console.log(text);
 }
 
-function speak_API1(text,lang) {
+function responsiveVoiceSpeak(text,lang, objOptions) {
 
     let voice = "US English Male"; // By default
+    let objResponsiveParameters = {};
 
     // Male or Female conditionals
     if(Voice.value === "Male") {
@@ -67,6 +106,9 @@ function speak_API1(text,lang) {
                 break;
             case "fr":
                 voice = "French Male";
+                break;
+            case "de":
+                voice = "Deutsch Male";
                 break;
             case "ja":
                 voice = "Japanese Male";
@@ -79,13 +121,16 @@ function speak_API1(text,lang) {
     else {
         switch(lang) {
             case "en":
-                voice = "Australian Female";
+                voice = "UK English Female";
                 break;
             case "fr":
                 voice = "French Female";
                 break;
             case "ja":
                 voice = "Japanese Female";
+                break;
+            case "de":
+                voice = "Deutsch Female";
                 break;
             case "ar":
                 voice = "Arabic Female";
@@ -95,6 +140,15 @@ function speak_API1(text,lang) {
 
     // Now, you shall speak!
     console.log(voice);
-    responsiveVoice.speak(text,voice);
+    
+    objResponsiveParameters.pitch = objOptions.pitch;
+    objResponsiveParameters.rate = objOptions.rate;
+    objResponsiveParameters.volume = objOptions.volume;
+    responsiveVoice.speak(text,voice, objResponsiveParameters);
 
+    //save our voice settings
+    storeOptionSettings(objOptions);
 }
+
+// Button onClick event listener
+readButton.addEventListener("click", read);
