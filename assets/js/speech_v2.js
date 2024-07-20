@@ -63,7 +63,7 @@ function speak_API1(text,lang) {
     if(Voice.value === "Male") {
         switch(lang) {
             case "en":
-                voice = "US English Male";
+                voice = "Australian Male";
                 break;
             case "fr":
                 voice = "French Male";
@@ -79,7 +79,7 @@ function speak_API1(text,lang) {
     else {
         switch(lang) {
             case "en":
-                voice = "US English Female";
+                voice = "Australian Female";
                 break;
             case "fr":
                 voice = "French Female";
@@ -94,6 +94,7 @@ function speak_API1(text,lang) {
     }
 
     // Now, you shall speak!
+    console.log(voice);
     responsiveVoice.speak(text,voice);
 
 }
