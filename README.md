@@ -56,7 +56,8 @@ Codey
 │   └── js/
 │       ├── about.js             # JavaScript file for about page
 │       ├── speech.js            # JavaScript file for speech functionality
-│       └── theme.js             # JavaScript file for theme management
+│       ├── theme.js             # JavaScript file for theme management
+│       └── translate.js         # JavaScript file for translation functionality
 ├── misc/
 │   ├── preview photos           # Folder for preview photos
 │   ├── Project README.md        # Project README file
@@ -87,7 +88,6 @@ Codey
 ### :rocket: Deployment
 
 - To deploy the website please visit : (https://alvin-est.github.io/crispy-chainsaw/)
-- 
 
  ###  :fire: Contribution
 
@@ -112,7 +112,7 @@ Programming language and other technologies
 - CSS
 Server-Side APIs
 - Responsive voice API
-- 
+- Google Cloud Translate API
 CSS framework
 - Pico
 
